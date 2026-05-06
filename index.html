@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Computer Repairs | Managed IT & Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --pcr-blue-dark: #1A3B7B;   
+            --pcr-blue-bright: #29A9E1; 
+            --pcr-gray-dark: #545454;   
+            --white: #ffffff;
+            --bg-light: #f4f7f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--pcr-gray-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 3px solid var(--pcr-blue-bright);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 12px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box img {
+            width: 350px; 
+            max-height: 80px;
+            object-fit: contain;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: var(--pcr-blue-dark);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        nav button:hover, nav button.active {
+            background: var(--pcr-blue-dark);
+            color: var(--white);
+        }
+
+        .page-content {
+            display: none;
+            padding: 60px 0;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .page-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Contact Section Styling */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--pcr-gray-dark);
+            border: 1px solid #e1e1e1;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--pcr-blue-bright);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--pcr-blue-bright);
+        }
+
+        .contact-card h3 {
+            color: var(--pcr-blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            word-break: break-all;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--pcr-blue-dark) 0%, #0d1e3d 100%);
+            color: var(--white);
+            padding: 80px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1e1e1;
+        }
+
+        @media (max-width: 900px) {
+            .nav-wrapper { flex-direction: column; }
+            .logo-box { margin-bottom: 20px; }
+            .logo-box img { width: 280px; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; }
+        }
+
+        footer {
+            background: var(--pcr-blue-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <div class="logo-box">
+            <img src="logo.png" alt="Precision Computer Repairs Logo">
+        </div>
+        <nav>
+            <button onclick="switchTab('home')" id="btn-home" class="active">Home</button>
+            <button onclick="switchTab('services')" id="btn-services">Services</button>
+            <button onclick="switchTab('about')" id="btn-about">About Us</button>
+            <button onclick="switchTab('contact')" id="btn-contact">Contact</button>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section id="home" class="page-content active">
+        <div class="hero">
+            <h1>Precision Tech Support</h1>
+            <p style="margin-bottom: 30px; font-size: 1.2rem;">Expert repairs and managed IT for home and business.</p>
+            <button onclick="switchTab('contact')" style="background:var(--pcr-blue-bright); color:white; padding:15px 30px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; text-transform: uppercase;">Get Help Now</button>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Hardware Repair</h3>
+                <p>Component-level repairs and upgrades for PCs, laptops, and servers.</p>
+            </div>
+            <div class="card">
+                <h3>IT Solutions</h3>
+                <p>Full-service network setup and cybersecurity for your small business.</p>
+            </div>
+            <div class="card">
+                <h3>Quick Diagnostics</h3>
+                <p>Swift identification of software bugs and performance bottlenecks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="page-content">
+        <h2 style="text-align:center;">Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Basic Diagnostic</h3>
+                <p>Detailed analysis of your device's health.</p>
+            </div>
+            <div class="card" style="border: 2px solid var(--pcr-blue-bright);">
+                <h3>Priority Repair</h3>
+                <p>Same-day service for critical business machines.</p>
+            </div>
+            <div class="card">
+                <h3>Data Recovery</h3>
+                <p>Recovering lost files from damaged drives.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page-content">
+        <h2 style="text-align:center;">About Us</h2>
+        <div style="max-width: 800px; margin: 40px auto; text-align: center;">
+            <p>Precision Computer Repairs is South Africa's trusted partner for high-quality IT maintenance. We focus on technical accuracy and professional integrity in every job we take.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="page-content">
+        <h2 style="text-align:center;">Connect With Us</h2>
+        <p style="text-align:center; color: var(--pcr-gray-light); margin-bottom: 20px;">We're ready to assist you on any of these platforms.</p>
+        
+        <div class="contact-grid">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/27628672474" class="contact-card" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p>+27 62 867 2474</p>
+                <small style="color:var(--pcr-blue-bright)">Chat Now</small>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:precisioncomputerrepairs1@gmail.com" class="contact-card">
+                <i class="far fa-envelope"></i>
+                <h3>Email</h3>
+                <p>precisioncomputerrepairs1@gmail.com</p>
+                <small style="color:var(--pcr-blue-bright)">Send Inquiry</small>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=61589087169456" class="contact-card" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+                <h3>Facebook</h3>
+                <p>Precision Computer Repairs</p>
+                <small style="color:var(--pcr-blue-bright)">Visit Page</small>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Precision Computer Repairs. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.page-content').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.getElementById('btn-' + tabId).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
